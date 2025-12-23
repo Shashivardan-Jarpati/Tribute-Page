@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marie Curie - A Tribute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #f4f1e8;
+        }
+
+        /* Header Section */
+        header {
+            background: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 8px solid #c0392b;
+        }
+
+        header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            font-style: italic;
+            color: #bdc3c7;
+            margin-bottom: 10px;
+        }
+
+        .years {
+            font-size: 18px;
+            color: #95a5a6;
+            letter-spacing: 4px;
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Classic Section Title Pattern */
+        .classic-heading {
+            position: relative;
+            text-align: center;
+            margin: 60px 0 40px;
+            padding: 20px 0;
+        }
+
+        .classic-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+            padding: 0 30px;
+            background: white;
+            z-index: 1;
+        }
+
+        .classic-heading::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #c0392b 0%, #e74c3c 50%, #c0392b 100%);
+        }
+
+        /* Ornamental Pattern */
+        .ornamental-heading {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .ornamental-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .ornamental-divider {
+            width: 200px;
+            height: 4px;
+            background: #c0392b;
+            margin: 0 auto 10px;
+            position: relative;
+        }
+
+        .ornamental-divider::before,
+        .ornamental-divider::after {
+            content: '◆';
+            position: absolute;
+            color: #c0392b;
+            font-size: 20px;
+            top: -8px;
+        }
+
+        .ornamental-divider::before {
+            left: -30px;
+        }
+
+        .ornamental-divider::after {
+            right: -30px;
+        }
+
+        /* Bordered Box Heading */
+        .bordered-heading {
+            margin: 60px 0 40px;
+            text-align: center;
+        }
+
+        .bordered-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border: 4px double #c0392b;
+            padding: 20px 40px;
+            display: inline-block;
+            background: #fff;
+        }
+
+        /* Underline with Center Accent */
+        .underline-heading {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .underline-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-block;
+            border-bottom: 5px solid #c0392b;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .underline-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background: #34495e;
+        }
+
+        /* Ribbon Style Heading */
+        .ribbon-heading {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .ribbon-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: #c0392b;
+            padding: 20px 60px;
+            display: inline-block;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .ribbon-heading h2::before,
+        .ribbon-heading h2::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .ribbon-heading h2::before {
+            left: -30px;
+            border-width: 30px 30px 30px 0;
+            border-color: transparent #c0392b transparent transparent;
+        }
+
+        .ribbon-heading h2::after {
+            right: -30px;
+            border-width: 30px 0 30px 30px;
+            border-color: transparent transparent transparent #c0392b;
+        }
+
+        /* Corner Brackets Heading */
+        .brackets-heading {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .brackets-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+            padding: 20px 40px;
+        }
+
+        .brackets-heading h2::before,
+        .brackets-heading h2::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #c0392b;
+        }
+
+        .brackets-heading h2::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .brackets-heading h2::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Side Lines Heading */
+        .sidelines-heading {
+            text-align: center;
+            margin: 60px 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .sidelines-heading::before,
+        .sidelines-heading::after {
+            content: '';
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #c0392b, transparent);
+            max-width: 200px;
+        }
+
+        .sidelines-heading h2 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Image Section */
+        .image-section {
+            background: #ecf0f1;
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 5px solid #c0392b;
+            border-bottom: 5px solid #c0392b;
+        }
+
+        .tribute-image img {
+            width: 200px;
+            height: auto;
+            background: #34495e;
+            border: 10px solid #2c3e50;
+            margin: 0 auto 25px;
+            box-shadow: 0 0 0 3px #c0392b, 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex ;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: white;
+        }
+
+        .image-caption {
+            font-size: 16px;
+            color: #555;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-left: 4px solid #c0392b;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 80px 60px;
+        }
+
+        .quote-box {
+            background: #fff9e6;
+            padding: 40px;
+            margin-bottom: 60px;
+            border: 3px solid #c0392b;
+            border-left-width: 10px;
+            box-shadow: 5px 5px 0 #34495e;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 100px;
+            color: #c0392b;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .quote-box blockquote {
+            font-size: 26px;
+            font-style: italic;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-size: 18px;
+            color: #555;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro-text {
+            font-size: 19px;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 2;
+            text-align: justify;
+            text-indent: 50px;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            margin: 60px 0;
+            border-left: 5px solid #c0392b;
+            padding-left: 40px;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #c0392b;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #c0392b;
+        }
+
+        .timeline-year {
+            font-size: 32px;
+            font-weight: 700;
+            color: #c0392b;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            border-left: 5px solid #34495e;
+        }
+
+        .timeline-content h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content p {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            margin: 60px 0;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .achievement-card {
+            background: #fff;
+            border: 4px solid #c0392b;
+            padding: 35px;
+            box-shadow: 8px 8px 0 #34495e;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px dashed #c0392b;
+        }
+
+        .achievement-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 #34495e;
+        }
+
+        .achievement-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .achievement-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Legacy Section */
+        .legacy {
+            background: #f8f9fa;
+            padding: 50px;
+            border: 5px double #c0392b;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .legacy::before,
+        .legacy::after {
+            content: '❖';
+            position: absolute;
+            font-size: 30px;
+            color: #c0392b;
+        }
+
+        .legacy::before {
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f8f9fa;
+            padding: 0 20px;
+        }
+
+        .legacy::after {
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f8f9fa;
+            padding: 0 20px;
+        }
+
+        .legacy p {
+            font-size: 18px;
+            color: #555;
+            line-height: 2;
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 50px;
+        }
+
+        /* Facts Section */
+        .facts-section {
+            margin: 60px 0;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .fact-card {
+            background: white;
+            border: 3px solid #2c3e50;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 5px 5px 0 #c0392b;
+        }
+
+        .fact-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 #c0392b;
+            border-color: #c0392b;
+        }
+
+        .fact-card h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+        }
+
+        .fact-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 8px solid #c0392b;
+        }
+
+        footer p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        footer a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        footer a:hover {
+            border-bottom-color: #e74c3c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            header h1 {
+                font-size: 42px;
+            }
+
+            .content {
+                padding: 60px 40px;
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .classic-heading h2,
+            .ornamental-heading h2,
+            .bordered-heading h2,
+            .underline-heading h2,
+            .ribbon-heading h2,
+            .brackets-heading h2,
+            .sidelines-heading h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 60px 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            .image-section {
+                padding: 40px 20px;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .classic-heading h2,
+            .ornamental-heading h2,
+            .bordered-heading h2,
+            .underline-heading h2,
+            .ribbon-heading h2,
+            .brackets-heading h2,
+            .sidelines-heading h2 {
+                font-size: 22px;
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Marie Curie</h1>
+        <p class="subtitle">Pioneer of Radioactivity Research</p>
+        <p class="years">1867 - 1934</p>
+    </header>
+
+    <div class="container">
+        <!-- Image Section -->
+        <section class="image-section">
+            <div class="tribute-image">
+                <img src="c:\Users\hp\Downloads\marie curie-image.jpg"alt="Marie Curie">
+            </div>
+            <p class="image-caption">
+                Marie Curie in her laboratory, where she conducted groundbreaking research 
+                that would change the world of science forever.
+            </p>
+        </section>
+
+        <!-- Main Content -->
+        <section class="content">
+            <!-- Classic Heading with Line Through -->
+            <div class="classic-heading">
+                <h2>Inspiring Words</h2>
+            </div>
+
+            <div class="quote-box">
+                <blockquote>
+                    "Nothing in life is to be feared, it is only to be understood. 
+                    Now is the time to understand more, so that we may fear less."
+                </blockquote>
+                <p class="quote-author">— Marie Curie</p>
+            </div>
+
+            <!-- Ornamental Heading with Divider -->
+            <div class="ornamental-heading">
+                <h2>A Revolutionary Scientist</h2>
+                <div class="ornamental-divider"></div>
+            </div>
+
+            <p class="intro-text">
+                Marie Curie was a Polish-born physicist and chemist who conducted pioneering 
+                research on radioactivity. She was the first woman to win a Nobel Prize, the 
+                first person to win the Nobel Prize twice, and the only person to win the Nobel 
+                Prize in two scientific fields (Physics and Chemistry). Her remarkable achievements 
+                broke barriers for women in science and paved the way for future generations of 
+                female scientists.
+            </p>
+
+            <!-- Bordered Box Heading -->
+            <div class="bordered-heading">
+                <h2>Life Timeline</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1867</div>
+                    <div class="timeline-content">
+                        <h3>Born in Warsaw, Poland</h3>
+                        <p>
+                            Marie Sklodowska was born on November 7 in Warsaw, Poland. Despite facing 
+                            financial hardships and the oppressive Russian occupation, she excelled in 
+                            her studies from an early age.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1891</div>
+                    <div class="timeline-content">
+                        <h3>Moved to Paris</h3>
+                        <p>
+                            At age 24, Marie moved to Paris to pursue her education at the University of 
+                            Paris (Sorbonne), where she studied physics and mathematics, graduating at the 
+                            top of her class.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1895</div>
+                    <div class="timeline-content">
+                        <h3>Marriage to Pierre Curie</h3>
+                        <p>
+                            Marie married Pierre Curie, a French physicist. Together, they formed one of 
+                            the most productive scientific partnerships in history, conducting groundbreaking 
+                            research on radioactivity.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1898</div>
+                    <div class="timeline-content">
+                        <h3>Discovery of Polonium and Radium</h3>
+                        <p>
+                            Along with Pierre, Marie discovered two new elements: polonium (named after her 
+                            homeland Poland) and radium. This discovery revolutionized the understanding of 
+                            atomic structure and radioactivity.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1903</div>
+                    <div class="timeline-content">
+                        <h3>First Nobel Prize in Physics</h3>
+                        <p>
+                            Marie Curie, along with Pierre Curie and Henri Becquerel, was awarded the Nobel 
+                            Prize in Physics for their research on radiation phenomena. She became the first 
+                            woman to win a Nobel Prize.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1911</div>
+                    <div class="timeline-content">
+                        <h3>Second Nobel Prize in Chemistry</h3>
+                        <p>
+                            Marie was awarded her second Nobel Prize, this time in Chemistry, for the discovery 
+                            of radium and polonium. She remains the only person to win Nobel Prizes in two 
+                            different scientific fields.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1914</div>
+                    <div class="timeline-content">
+                        <h3>World War I Service</h3>
+                        <p>
+                            During World War I, Marie developed mobile X-ray units, called "petites Curies," 
+                            to provide radiological services to field hospitals. She personally drove the units 
+                            to the front lines.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1934</div>
+                    <div class="timeline-content">
+                        <h3>Legacy Lives On</h3>
+                        <p>
+                            Marie Curie passed away on July 4, 1934, due to aplastic anemia, likely caused by 
+                            prolonged exposure to radiation. Her groundbreaking work continues to inspire 
+                            scientists around the world.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Underline with Center Accent -->
+            <div class="underline-heading">
+                <h2>Major Achievements</h2>
+            </div>
+
+            <div class="achievements">
+                <div class="achievement-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <h3>Two Nobel Prizes</h3>
+                        <p>
+                            The only person to win Nobel Prizes in two different scientific fields 
+                            (Physics in 1903 and Chemistry in 1911).
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⚛️</div>
+                        <h3>Discovery of Elements</h3>
+                        <p>
+                            Discovered two new radioactive elements: Polonium and Radium, advancing 
+                            the field of nuclear physics.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">👩‍🏫</div>
+                        <h3>First Female Professor</h3>
+                        <p>
+                            Became the first female professor at the University of Paris, breaking 
+                            gender barriers in academia.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏥</div>
+                        <h3>Medical Innovations</h3>
+                        <p>
+                            Pioneered the use of radiation therapy to treat cancer and developed 
+                            mobile X-ray units during World War I.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ribbon Style Heading -->
+            <div class="ribbon-heading">
+                <h2>Her Lasting Legacy</h2>
+            </div>
+
+            <div class="legacy">
+                <p>
+                    Marie Curie's contributions to science have had an immeasurable impact on modern 
+                    physics, chemistry, and medicine. Her research on radioactivity laid the foundation 
+                    for numerous scientific advances, including the development of X-ray technology, 
+                    cancer treatment through radiation therapy, and our understanding of atomic structure.
+                </p>
+                <p>
+                    Beyond her scientific achievements, Marie Curie broke down barriers for women in 
+                    science. In an era when women were largely excluded from academic and scientific 
+                    pursuits, she proved that gender should never be a barrier to intellectual achievement. 
+                    Her determination, work ethic, and brilliant mind continue to inspire women scientists 
+                    around the world.
+                </p>
+                <p>
+                    Today, the Curie Institute in Paris, which she founded, remains one of the world's 
+                    leading cancer research centers. Her name lives on in the unit of radioactivity (the 
+                    curie), and her legacy continues through the countless scientists who follow in her 
+                    footsteps, pushing the boundaries of human knowledge.
+                </p>
+            </div>
+
+            <!-- Brackets/Corner Heading -->
+            <div class="brackets-heading">
+                <h2>Interesting Facts</h2>
+            </div>
+
+            <div class="facts-section">
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <h4>📚 Self-Educated</h4>
+                        <p>
+                            Marie taught herself by reading books because Polish women couldn't attend 
+                            university at that time.
+                        </p>
+                    </div>
+
+                    <div class="fact-card">
+                        <h4>🔬 Laboratory Work</h4>
+                        <p>
+                            She conducted much of her early research in a converted shed with poor 
+                            ventilation and no proper equipment.
+                        </p>
+                    </div>
+
+                    <div class="fact-card">
+                        <h4>💪 Physical Strength</h4>
+                        <p>
+                            Marie personally processed tons of radioactive ore to extract tiny amounts 
+                            of radium for her research.
+                        </p>
+                    </div>
+
+                    <div class="fact-card">
+                        <h4>👨‍👩‍👧‍👦 Family Legacy</h4>
+                        <p>
+                            Her daughter, Irène Joliot-Curie, also won a Nobel Prize in Chemistry 
+                            in 1935.
+                        </p>
+                    </div>
+
+                    <div class="fact-card">
+                        <h4>📖 Notebooks Radioactive</h4>
+                        <p>
+                            Her laboratory notebooks from the 1890s are still too radioactive to handle 
+                            without protection.
+                        </p>
+                    </div>
+
+                    <div class="fact-card">
+                        <h4>🎖️ Wartime Hero</h4>
+                        <p>
+                            She established 20 mobile X-ray units during WWI and trained 150 women to 
+                            operate them.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            "Be less curious about people and more curious about ideas." - Marie Curie
+        </p>
+        <p>
+            Learn more about Marie Curie on 
+            <a href="https://en.wikipedia.org/wiki/Marie_Curie" target="_blank">Wikipedia</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 14px; color: #bdc3c7;">
+            Created as a tribute to one of history's greatest scientists
+        </p>
+    </footer>
+</body>
+</html>
